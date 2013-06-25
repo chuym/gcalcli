@@ -1,3 +1,58 @@
+v3.1
+  * Enhancements
+    - Ported to use the Google API Client library and Google Calendar v3 spec
+        now required: https://developers.google.com/api-client-library/python
+        the Google GData python module is now deprecated and no longer used
+    - OAuth2 authentication, all traces of username and password removed
+    - support for URL shortening via goo.gl
+    - the --detail-url=[long,short] is now accepted by most commands
+    - new 'delete' command used to interactively delete event(s)
+        new --iama-expert option is automatically delete event(s)
+    - new 'edit' command used to interactively edit event(s)
+    - new "now marker" in the 'calw' and 'calm' output that shows a line
+        representing the current time (i.e. like that seen in the Google
+        Calendar week/day views), new --now-marker-color changes line color
+    - new --detail-calendar option to print the calendar an event belongs
+    - terminal graphics now used for lines, use --nl option to turn them off
+    - the --cals option to limit calendars by access role has been removed
+    - the 'search' command now supports proper Google-like search terms
+  * Fixes
+    - the 'quick', 'add', and 'import' commands now require a single --cal option
+    - lots of code reduction and simplification based on new Google API Client
+    - tsv output
+
+v2.4
+  * Added support for conky color sequences
+  * Support --reminder when using ics/vcal import
+  * Don't print empty descriptions
+  * Add support for fuzzy dates (today, tomorrow, next week) using parsedatetime
+  * Empty descriptions no longer printed
+  * Fixed print locations and reminders for agenda
+  * Allow outputing event URL as short URL using goo.gl
+  * Really minor change to display end dates in the --tsv view mode.
+
+v2.3
+  * Enhancements
+    - new 'add' command for adding new events either interactively or
+        automatically with the new --title --where --when --duration --descr
+        options
+    - new --reminder option to specify a reminder time (in minutes) for the
+        'quick' and 'add' commands
+    - event details in 'agenda' output can now be selectively seen using
+        the new --detail-all --detail-location --detail-length
+        --detail-reminders --detail-descr --detail-descr-width options
+    - new --locale option added to override the default locale
+    - new --tsv option used for tab separated values 'agenda' output
+    - organizer and attendees are now imported from ics/vcal files
+    - doc updates including how to integrate with Thunderbird and Mutt
+        https://github.com/insanum/gcalcli#readme
+  * Fixes
+    - the --cal option now works properly when adding events
+    - now ONLY https is used when communicating with Google's servers
+    - lots of other fixes: https://github.com/insanum/gcalcli/issues
+
+v2.2
+  * never tagged and released (development for v2.3)
 
 v2.1
   * Enhancements
@@ -25,9 +80,11 @@ v1.4
   - new --border-color switch
 
 v1.3
-  - new '--cal' switch used to specify a single calendar or multiple using a regex
+  - new '--cal' switch used to specify a single calendar or multiple using
+      a regex
   - config file support (~/.gcalclirc or override on command line)
-  - new 'calm' and 'calw' command that displays a nice graphical representation of your calendar
+  - new 'calm' and 'calw' command that displays a nice graphical
+      representation of your calendar
   - new '--ignore-started' switch
   - fixed time display (am/pm) for Mac OSX
   - the 'remind' command now works against all specified calendars
