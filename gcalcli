@@ -242,14 +242,6 @@ class CLR_WHT(CLR):   color = "\033[0;37m"
 class CLR_BRWHT(CLR): color = "\033[37;1m"
 
 
-def PrintErrMsg(msg):
-    if CLR.useColor:
-        sys.stdout.write(str(CLR_BRRED()))
-        print msg,
-        sys.stdout.write(str(CLR_NRM()))
-    else:
-        sys.stdout.write(msg)
-
 def SetConkyColors():
     # XXX these colors should be configurable
     CLR.conky       = True
